@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoEleições 2026</title>
+  <meta name="theme-color" content="#0e0e10">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Cabeçalho compacto ===== -->
+  <header class="topo">
+    <div class="topo__linha">
+      <h1 class="topo__titulo">EcoEleições 2026</h1>
+
+      <input type="search" id="busca" class="busca" placeholder="Buscar por título…"
+             aria-label="Buscar fotos por título" autocomplete="off">
+
+      <span id="contador" class="contador" aria-live="polite">0 fotos</span>
+
+      <button type="button" id="btn-iniciar" class="btn btn--destaque">Iniciar Apresentação</button>
+    </div>
+
+    <!-- Botões de categoria (gerados via JS a partir de FOTOS) -->
+    <nav id="filtros" class="filtros" aria-label="Filtrar por categoria"></nav>
+  </header>
+
+  <!-- ===== Grade de miniaturas ===== -->
+  <main>
+    <section id="grade" class="grade" aria-label="Galeria de fotos"></section>
+    <p id="vazio" class="vazio" hidden>Nenhuma foto encontrada. Tente outro termo ou categoria.</p>
+  </main>
+
+  <!-- ===== Lightbox / Modo apresentação ===== -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotos" hidden>
+    <div class="lightbox__palco" id="palco">
+      <img id="lb-img" class="lightbox__img" alt="" decoding="async">
+    </div>
+
+    <button type="button" id="lb-fechar" class="lb-btn lb-btn--fechar" aria-label="Fechar (Esc)">✕</button>
+    <button type="button" id="lb-tela" class="lb-btn lb-btn--tela" aria-label="Tela cheia (F)">⛶</button>
+    <button type="button" id="lb-anterior" class="lb-btn lb-btn--ant" aria-label="Foto anterior (←)">‹</button>
+    <button type="button" id="lb-proxima" class="lb-btn lb-btn--prox" aria-label="Próxima foto (→)">›</button>
+
+    <div class="lightbox__legenda">
+      <span id="lb-titulo" class="lightbox__titulo"></span>
+      <span id="lb-meta" class="lightbox__meta"></span>
+    </div>
+  </div>
+
+  <!-- dados.js define o array global FOTOS (gerado pelo script Python) -->
+  <script src="dados.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
